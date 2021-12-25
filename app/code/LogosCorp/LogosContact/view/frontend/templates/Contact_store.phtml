@@ -1,0 +1,11 @@
+<?php
+/** @var \LogosCorp\LogosContact\Block\Template $block */
+?>
+<address>
+    <span class="displayBlock street-address-1"><?php echo $block->getPhoneNumber(); ?></span>
+    <span class="displayBlock street-address-1"><?php echo $block->getStreetLine1(); ?></span>
+    <span class="displayBlock street-address-2"><?php echo $block->getStreetLine2(); ?></span>
+    <span class="displayBlock city"><?php echo $block->getCity();?></span>
+    <span class="displayBlock postcode"><?php echo $block->getPostcode();?></span>
+    <span class="displayBlock region"><?php echo $block->getRegionId(); ?></span>
+</address>

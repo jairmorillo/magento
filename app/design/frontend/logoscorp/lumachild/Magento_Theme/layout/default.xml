@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--  Metodo Malvado para aplicar css       
+        <head>
+            <css src="css/custom_header.css" rel="stylesheet" type="text/css"  />
+        </head>
+   -->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+     <body>
+
+           <referenceBlock name="catalog.compare.link" remove="true" />
+           <referenceBlock name="catalog.compare.sidebar" remove="true" />
+           <referenceBlock name="paypal.partner.right.logo" remove="true" />
+           <referenceBlock name="header.panel.wrapper" remove="true" />
+           <referenceBlock name="footer_links" remove="true" />
+
+           <referenceBlock name="top.links">           
+               <referenceBlock name="register-link" remove="true" />           <!--for Create Account Link-->
+               <referenceBlock name="my-account-link" remove="true" />         <!--for My Account Link-->
+          </referenceBlock>
+
+        <referenceContainer name="header-wrapper"> 
+         <!-- Contenedor  Box 
+              <container name="header.box" label="headerBox"  htmlTag="div" htmlId="headerBox" htmlClass="box-container">                </container >        
+  -->      
+          <!-- Contenedor Columnas         
+                    <container name="header.center" label="headerCenter" htmlTag="div" htmlId="headerCenter" htmlClass="center-col" />   -->      
+                  <container name="header.left" label="headerLeft"  htmlTag="div" htmlId="headerLeft" htmlClass="left-col" before="-"/>        
+                  <container name="header.right" label="headerRight"  htmlTag="div" htmlId="headerRight" htmlClass="right-col" />  
+        
+         </referenceContainer>
+      
+         <!-- Mover Columnas
+                <move element="header.left" destination="header.box" />
+                <move element="header.center" destination="header.box" />
+                <move element="header.right" destination="header.box" /> 
+                <move element="top.search" destination="header.center" />
+            --> 
+         <!-- Mover elementos a Columnas -->  
+                <move element="logo" destination="header.left" />
+                <move element="minicart" destination="top.links" />
+                <move element="top.links" destination="header.right" />  
+                <move element="authorization-link" destination="header.right" />
+
+
+            <!--
+            <referenceContainer name="main">             
+                    <container name="home.logoscorp.header.bottom"  htmlTag="div"  htmlClass="logoscorp-header-bottom" before="-">
+                        <block class="Magento\Cms\Block\Block" name="header.bottom" before="-">
+                            <arguments>
+                                    <argument name="block_id" xsi:type="string">logoscorp_alert_bar</argument>          
+                            </arguments>
+                        </block>                
+                    </container>
+            </referenceContainer>
+            -->  
+
+             <referenceContainer name="page.bottom.container"> 
+                    <container name="footer.row" label="footerrow"  htmlTag="div" htmlId="footerrow" htmlClass="footer-row" />        
+             </referenceContainer>
+            
+            <move element="form.subscribe" destination="footer.row"/>
+
+   <!--Block Store Data -->
+    <referenceContainer name="footer">
+         <block class="LogosCorp\LogosContact\Block\ContactStore" name="footerlink" after="footerlogo" template="LogosCorp_LogosContact::Contact_store.phtml"/>
+    </referenceContainer>
+
+    </body>
+</page>
